@@ -1,0 +1,126 @@
+[% import "HeaderProcessing.egl"; %]
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="t_name">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="header">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FAF660" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ [% for(ws in worksheets.sortBy(ws | ws.order)){ %]
+ <Worksheet ss:Name="[%= ws.name%]">
+  [% for(t in ws.targetAssociation.target.sortBy(t | t.order)){  %]
+  [% var attributes = t.ownedAttribute;
+     var entries := new OrderedSet;
+     var t_entries := new OrderedSet;
+     var i = 0;
+     for(a in attributes){
+       var tuple := new Sequence;
+       tuple.add(a);
+       tuple.add(t);
+       tuple.add(0);
+       tuple.add(""+i);
+       entries.add(tuple);
+       i++;
+     }
+     var maxDepth = max(t);
+   
+  %]
+  <Table ss:ExpandedColumnCount="[%= nrLeafs(t) %]" ss:ExpandedRowCount="[%= maxDepth+3 %]" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.4">
+   <Row>
+    <Cell ss:StyleID="t_name"><Data ss:Type="String">[%= t.name%]</Data></Cell>
+   </Row>
+   [% while(not entries.isEmpty or not t_entries.isEmpty){ %]
+   <Row ss:AutoFitHeight="0">
+    [% 
+       var ei = 0;
+       var esz = entries.size;
+       entries = entries.sortBy(e | e[3]);
+      
+       while(ei < esz){   
+         var e = entries.at(ei);  
+         var h = e[1].targetAssociation.target.select( h | h.name == e[0].name);
+         if(e[2] > 0){ 
+            var re = entries.removeAt(ei);
+            var tuple := new Sequence;
+            tuple.add(re[0]);
+            tuple.add(re[1]);
+            tuple.add(re[2]-1);
+            tuple.add(re[3]);
+            entries.add(tuple);
+            esz = esz - 1;
+            continue;
+          }
+          
+          var MA;
+          var MD; 
+          var IDX;
+          if(not h.isEmpty){
+            MA = nrLeafs(h[0])-1;
+            MD = maxDepth-depth(h[0]);
+           }
+          else{
+            MA = 0;
+            MD = maxDepth; 
+           } 
+           IDX = leafPos(t, e[0])[1]+1;
+       %]
+    <Cell ss:Index="[%= IDX %]" [% if(not h.isEmpty and nrLeafs(h[0])-1 > 0){ %]ss:MergeAcross="[%= MA %]" [% } %]ss:MergeDown="[%= MD %]" ss:StyleID="header" ><Data ss:Type="String">[%= e[0].name%]</Data></Cell>
+	    [% 
+	       var i = 0;
+	       if(not h.ownedAttribute.isEmpty){
+		       for(hc in h.ownedAttribute[0]){
+		          var tuple := new Sequence;
+		          tuple.add(hc);
+		          tuple.add(h[0]);
+		          tuple.add(MD);
+		          tuple.add(e[3]+i);
+		          t_entries.add(tuple);
+		          i++;
+		        }
+	        }
+	        entries.removeAt(ei);
+	        esz = esz - 1;
+	        
+	    %]
+	  [%  }%]
+   </Row>
+   [%  
+       entries.addAll(t_entries);
+       
+       t_entries.clear;
+       maxDepth = maxDepth-1;
+
+   } %]
+  </Table>
+  [% }%]
+ </Worksheet>
+ [% }%]
+</Workbook>

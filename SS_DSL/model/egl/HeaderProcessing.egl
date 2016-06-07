@@ -1,0 +1,76 @@
+[% 
+
+operation max(t : Table) : Integer {
+  var maxDepth = 0;
+  for(h in t.targetAssociation.target){
+    var calcDepth = depth(h);
+    if(calcDepth > maxDepth)
+       maxDepth = calcDepth;
+  }
+  
+  return maxDepth;
+}
+
+@cached
+operation nrLeafs(c : Class) : Integer {
+ var nrOfLeafs = 0;
+ if(c.targetAssociation.target.size == 0)
+   return c.ownedAttribute.size;
+ else  
+   for(c_ in c.targetAssociation.target)
+    nrOfLeafs += nrLeafs(c_);
+   
+    nrOfLeafs += c.ownedAttribute.size - c.targetAssociation.target.size;
+ 
+   return nrOfLeafs; 
+}
+
+@cached
+operation leafPos(c : Class, node : Entry) : Sequence {
+  
+  var found = false;
+  var nrOfLeafs = 0;
+
+   for(c_ in c.ownedAttribute){
+       
+      if(c_ == node){
+        found = true;
+        break;
+      }
+       
+      var h = c.targetAssociation.target.select( h | h.name == c_.name); 
+      if(h.isEmpty)
+        nrOfLeafs++;
+      else {
+        var p = leafPos(h[0], node); 
+        nrOfLeafs += p[1];
+        if (p[0] == true){
+          found = true;
+          break;
+        }
+        
+      }    
+   }
+    
+   var n_pair := new Sequence;
+   n_pair.add(found);
+   n_pair.add(nrOfLeafs);
+   return n_pair;
+}
+
+@cached
+operation depth(h : Header) : Integer {
+ var maxDepth = -1;
+ if(h.targetAssociation.target.size == 0)
+   return 1;
+ else 
+   for(h_ in h.targetAssociation.target){
+    var calcDepth = depth(h_);
+    if(calcDepth > maxDepth)
+       maxDepth = calcDepth;
+   }
+   
+   return maxDepth + 1; 
+}
+
+%]
