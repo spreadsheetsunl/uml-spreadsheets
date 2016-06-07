@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/SS_DSL/src" modelPluginID="SS_DSL"
+    modelName="SS_DSL" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>sS_DSL.emf</foreignModel>
+  <genPackages prefix="SS_DSL" disposableProviderFactory="true" ecorePackage="sS_DSL.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sS_DSL.ecore#//TableType">
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//TableType/HORIZONTAL"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//TableType/RELATIONSHIP"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//TableType/VERTICAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sS_DSL.ecore#//CellType">
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//CellType/NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//CellType/TEXT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sS_DSL.ecore#//AggregationFunction">
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/AVERAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/COUNT"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/MAX"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/MIN"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/PRODUCT"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/SUM"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/MEDIAN"/>
+    </genEnums>
+    <genClasses ecoreClass="sS_DSL.ecore#//SS_DSL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//SS_DSL/hasElements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//Element"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//NamedElement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//NamedElement/clientDependency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//NamedElement/supplierDependency"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//Relationship"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//Namespace"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//Classifier"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//DirectedRelationship"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Association">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Association/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Association/source"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//Dependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Dependency/supplier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Dependency/client"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//Usage"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//BehavioredClassifier"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//DataType"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Class">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Class/ownedAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Class/sourceAssociation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Class/targetAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//Property"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//PackageableElement"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//TypedElement"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//ConnectableElement"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//InstanceSpecification"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sS_DSL.ecore#//Enumeration/ownedLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//EnumerationLiteral"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Aggregation"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Composition"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Workbook"/>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//Workitem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//Workitem/order"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//Worksheet"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//Table/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//Header"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//Formula">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//Formula/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//CellsAggregation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//CellsAggregation/aFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="sS_DSL.ecore#//Entry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//Entry/cType"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

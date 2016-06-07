@@ -1,0 +1,160 @@
+@namespace(uri="http://www.example.org/sS_DSL", prefix="sS_DSL")
+package sS_DSL;
+
+@gmf.diagram
+class SS_DSL {
+  val Element[*] hasElements;
+}
+
+abstract class Element {
+}
+
+abstract class NamedElement extends Element {
+  attr String[1] name;
+  ref Dependency[*]#supplier clientDependency;
+  ref Dependency[*]#client supplierDependency;
+}
+
+abstract class Relationship extends Element {
+}
+
+abstract class Namespace extends NamedElement {
+}
+
+abstract class Classifier extends Namespace {
+}
+
+abstract class DirectedRelationship extends Relationship {
+}
+
+@gmf.link(source="source", target="target", style="solid", width="1", color="0,0,0")
+class Association extends Relationship {
+  ref Class[1]#sourceAssociation target;
+  ref Class[1]#targetAssociation source;
+}
+
+class Dependency extends DirectedRelationship {
+  ref NamedElement[+]#clientDependency supplier;
+  ref NamedElement[+]#supplierDependency client;
+}
+
+@gmf.link(label.pattern="<<use>>", source="client", target="supplier", style="dot", width="2", target.decoration="arrow", color="0,0,0")
+class Usage extends Dependency {
+}
+
+abstract class BehavioredClassifier extends Classifier {
+}
+
+class DataType extends Classifier {
+}
+
+@gmf.node(label.icon="false", label="name", color="255,255,97", figure="rectangle", size="125,60")
+class Class extends BehavioredClassifier {
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val Property[*] ownedAttribute;
+  ref Association[*]#target sourceAssociation;
+  ref Association[*]#source targetAssociation;
+}
+
+class Property extends ConnectableElement {
+}
+
+abstract class PackageableElement extends NamedElement {
+}
+
+abstract class TypedElement extends NamedElement {
+}
+
+abstract class ConnectableElement extends TypedElement {
+}
+
+class InstanceSpecification extends PackageableElement {
+}
+
+@gmf.node(label.icon="false", label="name", color="204,204,0", figure="rectangle", size="150,180")
+class Enumeration extends DataType {
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val EnumerationLiteral[*] ownedLiteral;
+}
+
+@gmf.node(label.icon="false", label="name", color="250,250,250", figure="rectangle", size="150,25")
+class EnumerationLiteral extends InstanceSpecification {
+}
+
+@gmf.link(source="source", target="target", style="solid", width="1", source.decoration="filledrhomb", color="180,160,160")
+class Aggregation extends Association {
+}
+
+@gmf.link(source="source", target="target", style="solid", width="1", source.decoration="filledrhomb", color="0,0,0")
+class Composition extends Association {
+}
+
+@gmf.node(label.icon="false", label="name", color="192,192,192", figure="rectangle", size="125,60")
+class Workbook extends Class {
+}
+
+abstract class Workitem extends Class {
+
+  @gmf.label(label.pattern="order: {0}")
+  attr int[1] order;
+}
+
+@gmf.node(label.icon="false", label="name", color="0,255,128", figure="rectangle", size="125,60")
+class Worksheet extends Workitem {
+}
+
+enum TableType {
+  HORIZONTAL = 0;
+  RELATIONSHIP = 0;
+  VERTICAL = 0;
+}
+
+enum CellType {
+  NUMBER = 0;
+  TEXT = 0;
+}
+
+enum AggregationFunction {
+  AVERAGE = 0;
+  COUNT = 0;
+  MAX = 0;
+  MIN = 0;
+  PRODUCT = 0;
+  SUM = 0;
+  MEDIAN = 0;
+}
+
+@gmf.node(label.icon="false", label="name", color="255,255,102", figure="rectangle", size="125,60")
+class Table extends Workitem {
+
+  @gmf.label(label.pattern="type: {0}")
+  attr TableType[1] type = "VERTICAL";
+}
+
+@gmf.node(label.icon="false", label="name", color="102,178,255", figure="rectangle", size="125,60")
+class Header extends Class {
+}
+
+@gmf.node(label.icon="false", label="name", color="178,102,255", figure="rectangle", size="125,60")
+class Formula extends Class {
+
+  @gmf.label(label.pattern="formula: {0}")
+  attr String[1] formula;
+}
+
+@gmf.node(label.icon="false", label="name", color="255,102,178", figure="rectangle", size="125,60")
+class CellsAggregation extends Workitem {
+
+  @gmf.label(label.pattern="aggregation: {0}")
+  attr AggregationFunction[1] aFunction = "SUM";
+}
+
+@gmf.node(label.icon="false", label="name", color="250,250,250", figure="rectangle", size="180,55")
+class Entry extends Property {
+
+  @gmf.label(label.pattern="cType: {0}")
+  attr CellType[1] cType;
+}
+

@@ -1,0 +1,51 @@
+
+var classLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'ClassLabelFigure');
+classLabelFigure.font = customizeFont();
+
+var enumerationLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'EnumerationLabelFigure');
+enumerationLabelFigure.font = customizeFont();
+
+var workbookLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'WorkbookLabelFigure');
+workbookLabelFigure.font = customizeFont();
+
+var worksheetLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'WorksheetLabelFigure');
+worksheetLabelFigure.font = customizeFont();
+
+var tableLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'TableLabelFigure');
+tableLabelFigure.font = customizeFont();
+
+var headerLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'HeaderLabelFigure');
+headerLabelFigure.font = customizeFont();
+
+var formulaLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'FormulaLabelFigure');
+formulaLabelFigure.font = customizeFont();
+
+var cellsAggregationLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'CellsAggregationLabelFigure');
+cellsAggregationLabelFigure.font = customizeFont();
+
+var entryLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'EntryLabelFigure');
+entryLabelFigure.font = customizeFont2();
+
+
+operation customizeFont() {
+   var font = new GmfGraph!BasicFont;
+   font.style = GmfGraph!FontStyle#BOLD;
+   font.height = 11;
+   return font;
+
+}
+
+operation customizeFont2() {
+   var font = new GmfGraph!BasicFont;
+   font.style = GmfGraph!FontStyle#BOLD;
+   font.height = 9;
+   return font;
+
+}
+
+
+/*
+var classFigure = GmfGraph!Rectangle.all.selectOne(r|r.name = 'ClassFigure');
+classFigure.linekind = GmfGraph!LineKind#LINE_CUSTOM;
+*/
+

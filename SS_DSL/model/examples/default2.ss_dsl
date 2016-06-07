@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sS_DSL:SS_DSL xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sS_DSL="http://www.example.org/sS_DSL">
+  <hasElements xsi:type="sS_DSL:Workbook" name="TESTWB" targetAssociation="//@hasElements.2"/>
+  <hasElements xsi:type="sS_DSL:Worksheet" name="WS1" sourceAssociation="//@hasElements.2" targetAssociation="//@hasElements.4"/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.1" source="//@hasElements.0"/>
+  <hasElements xsi:type="sS_DSL:Table" name="cenas pah e tal portanto coiso" sourceAssociation="//@hasElements.4" targetAssociation="//@hasElements.6">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="dwed"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="34wdwe"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="iuhiuh"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.3" source="//@hasElements.1"/>
+  <hasElements xsi:type="sS_DSL:Header" name="dwed" sourceAssociation="//@hasElements.6" targetAssociation="//@hasElements.8">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="hiuh"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="iuhiuhuih"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="ilhil99"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="ljih"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.5" source="//@hasElements.3"/>
+  <hasElements xsi:type="sS_DSL:Header" name="ljih" sourceAssociation="//@hasElements.8">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="hl"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="iluhiu"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.7" source="//@hasElements.5"/>
+</sS_DSL:SS_DSL>

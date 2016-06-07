@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="sS_DSL">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="UsageFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolygonDecoration" name="FilledRhomb">
+      <template x="-1" y="1"/>
+      <template/>
+      <template x="-1" y="-1"/>
+      <template x="-2"/>
+      <template x="-1" y="1"/>
+    </figures>
+    <figures xsi:type="gmfgraph:PolygonDecoration" name="FilledRhomb">
+      <template x="-1" y="1"/>
+      <template/>
+      <template x="-1" y="-1"/>
+      <template x="-2"/>
+      <template x="-1" y="1"/>
+    </figures>
+    <descriptors name="ClassFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ClassFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="255" blue="97"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ClassLabelFigure" text="Class">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="ClassOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureClassLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors accessor="getClassOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="EnumerationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="EnumerationFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="204" green="204"/>
+        <preferredSize dx="150" dy="180"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="EnumerationLabelFigure" text="Enumeration">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="EnumerationOwnedLiteralCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureEnumerationLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors accessor="getEnumerationOwnedLiteralCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="EnumerationLiteralFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="EnumerationLiteralFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="250" green="250" blue="250"/>
+        <preferredSize dx="150" dy="25"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="EnumerationLiteralLabelFigure" text="EnumerationLiteral"/>
+      </actualFigure>
+      <accessors accessor="getFigureEnumerationLiteralLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="WorkbookFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="WorkbookFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="192" green="192" blue="192"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="WorkbookLabelFigure" text="Workbook">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="WorkbookOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureWorkbookLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors accessor="getWorkbookOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="WorksheetFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="WorksheetFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" green="255" blue="128"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="WorksheetLabelFigure" text="Worksheet">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="WorkitemOrderLabelFigure"/>
+        <children xsi:type="gmfgraph:Rectangle" name="WorksheetOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureWorksheetLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureWorkitemOrderLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+      <accessors accessor="getWorksheetOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="TableFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="TableFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="255" blue="102"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TableLabelFigure" text="Table">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="WorkitemOrderLabelFigure"/>
+        <children xsi:type="gmfgraph:Label" name="TableTypeLabelFigure"/>
+        <children xsi:type="gmfgraph:Rectangle" name="TableOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureTableLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureWorkitemOrderLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+      <accessors accessor="getFigureTableTypeLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
+      <accessors accessor="getTableOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="HeaderFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="HeaderFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="102" green="178" blue="255"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="HeaderLabelFigure" text="Header">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="HeaderOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureHeaderLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors accessor="getHeaderOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="FormulaFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="FormulaFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="178" green="102" blue="255"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FormulaLabelFigure" text="Formula">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="FormulaFormulaLabelFigure"/>
+        <children xsi:type="gmfgraph:Rectangle" name="FormulaOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureFormulaLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureFormulaFormulaLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors accessor="getFormulaOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="CellsAggregationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="CellsAggregationFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="102" blue="178"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="CellsAggregationLabelFigure" text="CellsAggregation">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="WorkitemOrderLabelFigure"/>
+        <children xsi:type="gmfgraph:Label" name="CellsAggregationAFunctionLabelFigure"/>
+        <children xsi:type="gmfgraph:Rectangle" name="CellsAggregationOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureCellsAggregationLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureWorkitemOrderLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+      <accessors accessor="getFigureCellsAggregationAFunctionLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.2"/>
+      <accessors accessor="getCellsAggregationOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="EntryFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="EntryFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="250" green="250" blue="250"/>
+        <preferredSize dx="180" dy="55"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="EntryLabelFigure" text="Entry">
+          <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="EntryCTypeLabelFigure"/>
+      </actualFigure>
+      <accessors accessor="getFigureEntryLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureEntryCTypeLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="AssociationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AssociationFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="UsageFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="UsageFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="AggregationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AggregationFigure" sourceDecoration="//@figures.0/@figures.1">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="180" green="160" blue="160"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="CompositionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="CompositionFigure" sourceDecoration="//@figures.0/@figures.2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+  </figures>
+  <nodes name="Class" figure="ClassFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="Enumeration" figure="EnumerationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="180"/>
+    </facets>
+  </nodes>
+  <nodes name="EnumerationLiteral" figure="EnumerationLiteralFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="25"/>
+    </facets>
+  </nodes>
+  <nodes name="Workbook" figure="WorkbookFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="Worksheet" figure="WorksheetFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="Table" figure="TableFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="Header" figure="HeaderFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="Formula" figure="FormulaFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="CellsAggregation" figure="CellsAggregationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="Entry" figure="EntryFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="180" dy="55"/>
+    </facets>
+  </nodes>
+  <connections name="Association" figure="AssociationFigure"/>
+  <connections name="Usage" figure="UsageFigure"/>
+  <connections name="Aggregation" figure="AggregationFigure"/>
+  <connections name="Composition" figure="CompositionFigure"/>
+  <compartments name="ClassOwnedAttributeCompartment" figure="ClassFigure" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="EnumerationOwnedLiteralCompartment" figure="EnumerationFigure" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments name="WorkbookOwnedAttributeCompartment" figure="WorkbookFigure" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <compartments name="WorksheetOwnedAttributeCompartment" figure="WorksheetFigure" accessor="//@figures.0/@descriptors.4/@accessors.2"/>
+  <compartments name="TableOwnedAttributeCompartment" figure="TableFigure" accessor="//@figures.0/@descriptors.5/@accessors.3"/>
+  <compartments name="HeaderOwnedAttributeCompartment" figure="HeaderFigure" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments name="FormulaOwnedAttributeCompartment" figure="FormulaFigure" accessor="//@figures.0/@descriptors.7/@accessors.2"/>
+  <compartments name="CellsAggregationOwnedAttributeCompartment" figure="CellsAggregationFigure" accessor="//@figures.0/@descriptors.8/@accessors.3"/>
+  <labels name="ClassLabel" figure="ClassFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="EnumerationLabel" figure="EnumerationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="EnumerationLiteralLabel" figure="EnumerationLiteralFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="WorkbookLabel" figure="WorkbookFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="WorksheetLabel" figure="WorksheetFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="WorkitemOrderLabel" figure="WorksheetFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels name="TableLabel" figure="TableFigure" elementIcon="false" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="WorkitemOrderLabel" figure="TableFigure" elementIcon="false" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <labels name="TableTypeLabel" figure="TableFigure" elementIcon="false" accessor="//@figures.0/@descriptors.5/@accessors.2"/>
+  <labels name="HeaderLabel" figure="HeaderFigure" elementIcon="false" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="FormulaLabel" figure="FormulaFigure" elementIcon="false" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="FormulaFormulaLabel" figure="FormulaFigure" elementIcon="false" accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+  <labels name="CellsAggregationLabel" figure="CellsAggregationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="WorkitemOrderLabel" figure="CellsAggregationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.1"/>
+  <labels name="CellsAggregationAFunctionLabel" figure="CellsAggregationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.2"/>
+  <labels name="EntryLabel" figure="EntryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="EntryCTypeLabel" figure="EntryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+</gmfgraph:Canvas>
