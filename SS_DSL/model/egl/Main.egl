@@ -2,7 +2,6 @@
 
 var t = TemplateFactory.load("Workbook.egl");
 var workbook = Workbook.all[0];
-
 t.populate("worksheets", workbook.targetAssociation.target);
 t.process();
 t.generate(workbook.name+'.xml');

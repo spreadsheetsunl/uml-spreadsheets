@@ -2,7 +2,7 @@
 
 operation max(t : Table) : Integer {
   var maxDepth = 0;
-  for(h in t.targetAssociation.target){
+  for(h in t.targetAssociation.target.select(h | h.isTypeOf(Header))){
     var calcDepth = depth(h);
     if(calcDepth > maxDepth)
        maxDepth = calcDepth;
@@ -17,10 +17,10 @@ operation nrLeafs(c : Class) : Integer {
  if(c.targetAssociation.target.size == 0)
    return c.ownedAttribute.size;
  else  
-   for(c_ in c.targetAssociation.target)
+   for(c_ in c.targetAssociation.target.select(h | h.isTypeOf(Header)))
     nrOfLeafs += nrLeafs(c_);
    
-    nrOfLeafs += c.ownedAttribute.size - c.targetAssociation.target.size;
+    nrOfLeafs += c.ownedAttribute.size - c.targetAssociation.target.select(h | h.isTypeOf(Header)).size;
  
    return nrOfLeafs; 
 }
@@ -38,7 +38,7 @@ operation leafPos(c : Class, node : Entry) : Sequence {
         break;
       }
        
-      var h = c.targetAssociation.target.select( h | h.name == c_.name); 
+      var h = c.targetAssociation.target.select( h | h.name == c_.name and h.isTypeOf(Header)); 
       if(h.isEmpty)
         nrOfLeafs++;
       else {
@@ -61,16 +61,82 @@ operation leafPos(c : Class, node : Entry) : Sequence {
 @cached
 operation depth(h : Header) : Integer {
  var maxDepth = -1;
- if(h.targetAssociation.target.size == 0)
+ if(h.targetAssociation.target.select(h | h.isTypeOf(Header)).size == 0)
    return 1;
  else 
-   for(h_ in h.targetAssociation.target){
+   for(h_ in h.targetAssociation.target.select(h | h.isTypeOf(Header))){
     var calcDepth = depth(h_);
     if(calcDepth > maxDepth)
        maxDepth = calcDepth;
    }
    
    return maxDepth + 1; 
+}
+
+operation allLeafs(c : Class) : Sequence {
+  var leafs := new Sequence;
+  
+   for(c_ in c.ownedAttribute){
+      var h = c.targetAssociation.target.select( h | h.name == c_.name and h.isTypeOf(Header)); 
+      if(h.isEmpty){
+        var pair := new Sequence;
+        pair.add(c_);
+        pair.add(c);
+        leafs.add(pair);
+      }
+      else {
+        leafs.addAll(allLeafs(h[0]));
+      }
+   }
+   return leafs; 
+}
+
+operation leafsMap(seq : Sequence) : Map {
+   var map := new Map;
+   var count = 1;
+   for(e in seq){
+     map.put(e[0], count);
+     count++;
+   } 
+   return map;
+}
+
+operation getHeaderSSType(e : Entry) : String {
+  switch (e.cType+"") {
+    case "NUMBER": return "Number";
+    case "TEXT" : return "String";
+ }
+}
+
+operation getHeaderSSTypeDefaultV(e : Entry) : String {
+  switch (e.cType+"") {
+    case "NUMBER": return "0";
+    case "TEXT" : return "\"\"";
+ }
+}
+
+operation getFormula(e : Sequence, s :Sequence) : String {
+   var lm = leafsMap(s);
+   var f = e[1].targetAssociation.target.select(h | h.name == e[0].name and h.isTypeOf(Formula)); 
+   var fText; 
+   if (f.isEmpty)
+     return "";
+   else { 
+    fText = f[0].formula.trim();
+    for(ef in f[0].supplierDependency.supplier){
+      var rPos = getRelativePos(e[0], ef[0], lm);
+      fText = fText.replace("<"+ef[0].name+">", "RC["+rPos+"]");
+    }
+   }
+    
+    return " ss:Formula=\"="+fText+"\"";
+}
+
+operation getRelativePos(e : Entry, r : Entry, lm : Map) : Integer {
+  var ep = lm.get(e);
+  var rp = lm.get(r);
+  return rp-ep;
+
 }
 
 %]

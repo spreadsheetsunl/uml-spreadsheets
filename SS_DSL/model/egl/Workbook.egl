@@ -35,7 +35,7 @@
  </Styles>
  [% for(ws in worksheets.sortBy(ws | ws.order)){ %]
  <Worksheet ss:Name="[%= ws.name%]">
-  [% for(t in ws.targetAssociation.target.sortBy(t | t.order)){  %]
+  [% for(t in ws.targetAssociation.target.sortBy(t | t.order)){  %] 
   [% var attributes = t.ownedAttribute;
      var entries := new OrderedSet;
      var t_entries := new OrderedSet;
@@ -52,7 +52,7 @@
      var maxDepth = max(t);
    
   %]
-  <Table ss:ExpandedColumnCount="[%= nrLeafs(t) %]" ss:ExpandedRowCount="[%= maxDepth+3 %]" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="[%= nrLeafs(t) %]" ss:ExpandedRowCount="[%= maxDepth+3+20 %]" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.4">
    <Row>
     <Cell ss:StyleID="t_name"><Data ss:Type="String">[%= t.name%]</Data></Cell>
@@ -66,7 +66,7 @@
       
        while(ei < esz){   
          var e = entries.at(ei);  
-         var h = e[1].targetAssociation.target.select( h | h.name == e[0].name);
+         var h = e[1].targetAssociation.target.select( h | h.name == e[0].name and h.isTypeOf(Header));
          if(e[2] > 0){ 
             var re = entries.removeAt(ei);
             var tuple := new Sequence;
@@ -119,6 +119,14 @@
        maxDepth = maxDepth-1;
 
    } %]
+   [% for (i in Sequence{1..20}) { %]
+   <Row ss:AutoFitHeight="0">
+    [% var aL = allLeafs(t);
+       for(e in aL) { %]
+    <Cell[%=getFormula(e, aL)%]><Data ss:Type="[%=getHeaderSSType(e[0])%]">[%=getHeaderSSTypeDefaultV(e[0])%]</Data></Cell>
+    [% } %]
+   </Row>   
+   [% } %]
   </Table>
   [% }%]
  </Worksheet>
