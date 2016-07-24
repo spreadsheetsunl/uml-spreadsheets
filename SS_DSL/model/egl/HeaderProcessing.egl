@@ -139,4 +139,129 @@ operation getRelativePos(e : Entry, r : Entry, lm : Map) : Integer {
 
 }
 
+operation concatStringWithSpace(s : String, numSpac : Integer) : String {
+    
+    if(numSpac == 0 or numSpac == 1)
+      return s;
+      
+    for(i in Sequence{2..numSpac})
+      s = "    "+s; 
+     
+    return s;
+}
+
+@cached
+operation getVerticalHeaders(h : Header, depth : Integer) : Sequence {
+
+   var vH := new Sequence;
+   var pair := new Sequence;
+   pair.add(h);
+   pair.add(concatStringWithSpace(h.name, depth));
+   vH.add(pair);
+   
+   for(e in h.ownedAttribute){
+     var ch = h.targetAssociation.target.select(h | h.name == e.name and h.isTypeOf(Header));
+     if(ch.size == 0){
+       var pair := new Sequence;
+       pair.add(e);
+       pair.add(concatStringWithSpace(e.name, depth+1));
+       vH.add(pair);
+     }
+     for(h_ in ch){
+       vH.addAll(getVerticalHeaders(h_, depth+1));
+     }
+   }
+   
+    for(a in h.targetAssociation.target.select(a | a.isTypeOf(CellsAggregation)).sortBy(a | a.order)){
+       var triple := new Sequence;
+       triple.add(a);
+       triple.add(concatStringWithSpace(a.name, depth+1));
+       triple.add(h);
+       vH.add(triple);
+    }
+   
+   return vH;
+
+}
+
+operation getAggFormula(count : Integer, vH : Sequence) : String{
+
+   var entriesToAg := new Sequence;
+   var count2 = count - 1;
+   var header = vH.at(count-1)[0];     
+       
+   while(count2 >= 0) {
+       var currHeader = vH.at(count2); 
+       if(currHeader[0].isTypeOf(Entry) and currHeader[0].cType == CellType#NUMBER)
+           entriesToAg.add(count2);
+       else if(currHeader[0].isTypeOf(Header) and  vH.at(count-1)[2] == currHeader[0])
+            break;
+         
+       count2 =  count2 - 1;
+   }
+       
+   var aggFunc = header.aFunction+"(";
+   
+   for(n in entriesToAg)
+       aggFunc += "R["+(n-count+1)+"]C,";
+         
+   aggFunc = aggFunc.substring(0, aggFunc.length-1);
+   aggFunc +=")";
+        
+   return aggFunc;
+}
+
+operation vHeaderType(h : Element) : String {
+
+  if(h.isTypeOf(Header) or h.isTypeOf(Entry))
+    return "vheader";
+  else if(h.isTypeOf(CellsAggregation))
+    return "aFunction";
+}
+
+operation v_getEntryHeader(e : Entry, s : Sequence) : Header{
+
+   var ePos = 0;
+
+   for(_s in s){
+     if(e == _s)
+       ePos++;
+   }
+   
+   while(ePos >= 0){
+     var elem = s.at(ePos)[ePos];
+     if(elem.isTypeOf(Header))
+       return elem;
+     else
+       ePos = ePos - 1;
+   }
+       
+}
+//fundir numa só
+operation getFormulaVertical(e : Sequence, s :Sequence) : String {
+   var lm = leafsMap(s);
+   
+   var entryHeader = v_getEntryHeader(e[0], s);
+   
+   var f = entryHeader.targetAssociation.target.select(h | h.name == e[0].name and h.isTypeOf(Formula)); 
+   var fText; 
+   if (f.isEmpty)
+     return "";
+   else { 
+    fText = f[0].formula.trim();
+    for(ef in f[0].supplierDependency.supplier){
+      var rPos = getRelativePos(e[0], ef[0], lm);
+      fText = fText.replace("<"+ef[0].name+">", "R["+rPos+"]C");
+    }
+   }
+    
+    return " ss:Formula=\"="+fText+"\"";
+}
+
+
+
+
+
+
+
 %]

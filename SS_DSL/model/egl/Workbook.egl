@@ -30,25 +30,54 @@
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-   <Interior ss:Color="#FAF660" ss:Pattern="Solid"/>
+   <Interior ss:Color="#FDFBBB" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="vheader">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#DDEBF7" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="aFunction">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FF99FF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  [% for(ws in worksheets.sortBy(ws | ws.order)){ %]
  <Worksheet ss:Name="[%= ws.name%]">
-  [% for(t in ws.targetAssociation.target.sortBy(t | t.order)){  %] 
+  [% for(t in ws.targetAssociation.target.sortBy(t | t.order)){
+    var vHeader;
+    if(t.type == TableType#RELATIONSHIP){
+    
+      vHeader = t.targetAssociation.removeAt(0);
+    }
+  %] 
   [% var attributes = t.ownedAttribute;
      var entries := new OrderedSet;
      var t_entries := new OrderedSet;
      var i = 0;
      for(a in attributes){
-       var tuple := new Sequence;
-       tuple.add(a);
-       tuple.add(t);
-       tuple.add(0);
-       tuple.add(""+i);
-       entries.add(tuple);
-       i++;
+	     var tuple := new Sequence;
+	     tuple.add(a);
+	     tuple.add(t);
+	     tuple.add(0);
+	     tuple.add(""+i);
+	     entries.add(tuple);
+	     i++;
      }
+     
      var maxDepth = max(t);
    
   %]
@@ -119,13 +148,40 @@
        maxDepth = maxDepth-1;
 
    } %]
+   [% if(t.type == TableType#VERTICAL) { %]
    [% for (i in Sequence{1..20}) { %]
    <Row ss:AutoFitHeight="0">
     [% var aL = allLeafs(t);
        for(e in aL) { %]
     <Cell[%=getFormula(e, aL)%]><Data ss:Type="[%=getHeaderSSType(e[0])%]">[%=getHeaderSSTypeDefaultV(e[0])%]</Data></Cell>
     [% } %]
-   </Row>   
+   </Row>  
+   [% } %] 
+   [% } else if (t.type == TableType#RELATIONSHIP){ 
+   
+      var vH = getVerticalHeaders(vHeader.target, 0);
+      leafsMap(vH).println;
+     
+   %]
+   
+     [%  
+      var count = 1;
+      while(count < vH.size) {
+      
+        var header = vH.at(count);
+        count++;
+      
+      %]   
+   <Row ss:AutoFitHeight="0">      
+    <Cell ss:StyleID="[%=vHeaderType(header[0])%]"><Data ss:Type="String">[%=header[1]%]</Data></Cell>
+    [% for (i in Sequence{1..(nrLeafs(t)-1)}) { %]
+      [% if (header[0].isTypeOf(Entry)) { %]
+    <Cell [%=getFormulaVertical(header, vH)%]><Data ss:Type="[%=getHeaderSSType(header[0])%]">[%=getHeaderSSTypeDefaultV(header[0])%]</Data></Cell>
+     [% } else if(header[0].isTypeOf(CellsAggregation)) { %]
+    <Cell ss:Formula="[%=getAggFormula(count, vH)%]"><Data ss:Type="Number"></Data></Cell>
+    [% } } %]
+   </Row> 
+     [% } %]
    [% } %]
   </Table>
   [% }%]
