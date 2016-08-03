@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sS_DSL:SS_DSL xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sS_DSL="http://www.example.org/sS_DSL">
+  <hasElements xsi:type="sS_DSL:Workbook" name="capitol_art_inventory" targetAssociation="//@hasElements.4"/>
+  <hasElements xsi:type="sS_DSL:Table" name="IDAHO STATE CAPITOL ARTWORK AND DISPLAY INVENTORY" sourceAssociation="//@hasElements.4" targetAssociation="//@hasElements.5 //@hasElements.6">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Category" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Dimensions" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Location" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Description" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Photo" cType="TEXT"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Header" name="Dimensions" sourceAssociation="//@hasElements.5">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Heigth"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Width"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Depth"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Header" name="Location" sourceAssociation="//@hasElements.6">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Floor"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Wing" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Notes" cType="TEXT"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.1" source="//@hasElements.0"/>
+  <hasElements xsi:type="sS_DSL:Aggregation" target="//@hasElements.2" source="//@hasElements.1"/>
+  <hasElements xsi:type="sS_DSL:Aggregation" target="//@hasElements.3" source="//@hasElements.1"/>
+  <hasElements xsi:type="sS_DSL:Table" name=" " targetAssociation="//@hasElements.9 //@hasElements.12" type="RELATIONSHIP"/>
+  <hasElements xsi:type="sS_DSL:Header" name="Calendar Year" sourceAssociation="//@hasElements.9">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="2002"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="2003"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="2004"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="2005"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="2006"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.8" source="//@hasElements.7"/>
+  <hasElements xsi:type="sS_DSL:Header" name=" " sourceAssociation="//@hasElements.12" targetAssociation="//@hasElements.16">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Volume / Day"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Days/Year"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Demand Charge/MMbtu"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Gas Research Institute (GRI)"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Header" name="COSTS">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Cigar Boxes"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Cigar Box Accessories ($3.00/box)"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Resourses"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Technology"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Marketing"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Micellaneous Costs"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.10" source="//@hasElements.7"/>
+  <hasElements xsi:type="sS_DSL:Header" name="Cigar Boxes">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="retaurants (1000 boxes for free)"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="tobacco shops (1000 boxes for $1.00 each)"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Header" name="Resourses">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="CEO/CIO ($25,000 each)"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Purse maker ($6.00/hour) "/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:CellsAggregation" name="Total Calendar Demand Charge" sourceAssociation="//@hasElements.16"/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.15" source="//@hasElements.10"/>
+  <hasElements xsi:type="sS_DSL:Table" name="2004 Financial Analysis" targetAssociation="//@hasElements.20 //@hasElements.21" type="RELATIONSHIP"/>
+  <hasElements xsi:type="sS_DSL:Header" name=" " sourceAssociation="//@hasElements.21" targetAssociation="//@hasElements.23">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Expected number of purses sold:" clientDependency="//@hasElements.24"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Cigar Box Accessories ($3.00/box)"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Header" name=" " sourceAssociation="//@hasElements.20">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Q1"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Q2"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Q3"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Q4"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.19" source="//@hasElements.17"/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.18" source="//@hasElements.17"/>
+  <hasElements xsi:type="sS_DSL:Formula" name="Cigar Box Accessories ($3.00/box)" supplierDependency="//@hasElements.24" sourceAssociation="//@hasElements.23" formula="[Expected number of purses sold] * 3"/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.22" source="//@hasElements.18"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.18/@ownedAttribute.0" client="//@hasElements.22"/>
+</sS_DSL:SS_DSL>

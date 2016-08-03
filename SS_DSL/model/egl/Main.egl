@@ -5,6 +5,18 @@ var workbook = Workbook.all[0];
 t.populate("worksheets", workbook.targetAssociation.target);
 t.process();
 t.generate(workbook.name+'.xml');
+/*
+var file = new Native("org.eclipse.epsilon.examples.tools.Test");
+file.getStuff("rfrf").println();*/
+
+var test = new Native("org.eclipse.epsilon.examples.tools.ParserManager");
+test.parse("2+30-4554*67+3434+5/454-45/453*45").println();
+test.translate.println();
+
+
+
+test.parse("4*5/6+4").println();
+test.translate.println();
 
 %]
 

@@ -13,6 +13,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="sS_DSL.ecore#//CellType">
       <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//CellType/NUMBER"/>
       <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//CellType/TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//CellType/NONE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="sS_DSL.ecore#//AggregationFunction">
       <genEnumLiterals ecoreEnumLiteral="sS_DSL.ecore#//AggregationFunction/AVERAGE"/>
@@ -80,6 +81,10 @@
     </genClasses>
     <genClasses ecoreClass="sS_DSL.ecore#//Entry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//Entry/cType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sS_DSL.ecore#//Format"/>
+    <genClasses ecoreClass="sS_DSL.ecore#//RegEx">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sS_DSL.ecore#//RegEx/exp"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

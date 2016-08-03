@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sS_DSL:SS_DSL xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sS_DSL="http://www.example.org/sS_DSL">
+  <hasElements xsi:type="sS_DSL:Workbook" name="regex" targetAssociation="//@hasElements.2"/>
+  <hasElements xsi:type="sS_DSL:Worksheet" name="W1" sourceAssociation="//@hasElements.2" targetAssociation="//@hasElements.4"/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.1" source="//@hasElements.0"/>
+  <hasElements xsi:type="sS_DSL:Table" name="table1" sourceAssociation="//@hasElements.4">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="header1" supplierDependency="//@hasElements.10" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="header2" supplierDependency="//@hasElements.9" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="email" supplierDependency="//@hasElements.6" cType="TEXT"/>
+  </hasElements>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.3" source="//@hasElements.1"/>
+  <hasElements xsi:type="sS_DSL:RegEx" clientDependency="//@hasElements.6" exp="*@*.com"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.5" client="//@hasElements.3/@ownedAttribute.2"/>
+  <hasElements xsi:type="sS_DSL:RegEx" clientDependency="//@hasElements.9" exp="??t??"/>
+  <hasElements xsi:type="sS_DSL:RegEx" clientDependency="//@hasElements.10" exp="io*o"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.7" client="//@hasElements.3/@ownedAttribute.1"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.8" client="//@hasElements.3/@ownedAttribute.0"/>
+</sS_DSL:SS_DSL>

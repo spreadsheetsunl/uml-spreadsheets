@@ -23,6 +23,9 @@ formulaLabelFigure.font = customizeFont();
 var cellsAggregationLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'CellsAggregationLabelFigure');
 cellsAggregationLabelFigure.font = customizeFont();
 
+var regExLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'RegExLabelFigure');
+regExLabelFigure.font = customizeFont();
+
 var entryLabelFigure = GmfGraph!Label.all.selectOne(l|l.name = 'EntryLabelFigure');
 entryLabelFigure.font = customizeFont2();
 

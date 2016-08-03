@@ -32,12 +32,12 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.9"/>
+          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.10"/>
       <diagramNode
           href="sS_DSL.gmfgraph#Worksheet"/>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
@@ -84,12 +84,12 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="sS_DSL.gmfgraph#Table"/>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
@@ -141,7 +141,7 @@
           href="sS_DSL.gmfgraph#CellsAggregation"/>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
@@ -149,6 +149,48 @@
           children="//@nodes.2/@ownedChild/@children.0">
         <compartment
             href="sS_DSL.gmfgraph#CellsAggregationOwnedAttributeCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="sS_DSL.ecore#//SS_DSL/hasElements"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="sS_DSL.ecore#//RegEx"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="sS_DSL.gmfgraph#RegExLabel"/>
+        <features
+            href="sS_DSL.ecore#//NamedElement/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="epx: {0}"
+          editorPattern="epx: {0}"
+          editPattern="epx: {0}">
+        <diagramLabel
+            href="sS_DSL.gmfgraph#RegExExpLabel"/>
+        <features
+            href="sS_DSL.ecore#//RegEx/exp"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.7"/>
+      <diagramNode
+          href="sS_DSL.gmfgraph#RegEx"/>
+      <children
+          compartment="//@nodes.3/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.9/@ownedChild">
+        <containmentFeature
+            href="sS_DSL.ecore#//Class/ownedAttribute"/>
+      </children>
+      <compartments
+          children="//@nodes.3/@ownedChild/@children.0">
+        <compartment
+            href="sS_DSL.gmfgraph#RegExOwnedAttributeCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -168,17 +210,17 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="sS_DSL.gmftool#//@palette/@tools.0/@tools.9"/>
       <diagramNode
           href="sS_DSL.gmfgraph#Workbook"/>
       <children
-          compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          compartment="//@nodes.4/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
       <compartments
-          children="//@nodes.3/@ownedChild/@children.0">
+          children="//@nodes.4/@ownedChild/@children.0">
         <compartment
             href="sS_DSL.gmfgraph#WorkbookOwnedAttributeCompartment"/>
       </compartments>
@@ -204,13 +246,13 @@
       <diagramNode
           href="sS_DSL.gmfgraph#Header"/>
       <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          compartment="//@nodes.5/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
       <compartments
-          children="//@nodes.4/@ownedChild/@children.0">
+          children="//@nodes.5/@ownedChild/@children.0">
         <compartment
             href="sS_DSL.gmfgraph#HeaderOwnedAttributeCompartment"/>
       </compartments>
@@ -246,13 +288,13 @@
       <diagramNode
           href="sS_DSL.gmfgraph#Formula"/>
       <children
-          compartment="//@nodes.5/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          compartment="//@nodes.6/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
       <compartments
-          children="//@nodes.5/@ownedChild/@children.0">
+          children="//@nodes.6/@ownedChild/@children.0">
         <compartment
             href="sS_DSL.gmfgraph#FormulaOwnedAttributeCompartment"/>
       </compartments>
@@ -278,13 +320,13 @@
       <diagramNode
           href="sS_DSL.gmfgraph#Class"/>
       <children
-          compartment="//@nodes.6/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          compartment="//@nodes.7/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.9/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Class/ownedAttribute"/>
       </children>
       <compartments
-          children="//@nodes.6/@ownedChild/@children.0">
+          children="//@nodes.7/@ownedChild/@children.0">
         <compartment
             href="sS_DSL.gmfgraph#ClassOwnedAttributeCompartment"/>
       </compartments>
@@ -310,13 +352,13 @@
       <diagramNode
           href="sS_DSL.gmfgraph#Enumeration"/>
       <children
-          compartment="//@nodes.7/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.9/@ownedChild">
+          compartment="//@nodes.8/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.10/@ownedChild">
         <containmentFeature
             href="sS_DSL.ecore#//Enumeration/ownedLiteral"/>
       </children>
       <compartments
-          children="//@nodes.7/@ownedChild/@children.0">
+          children="//@nodes.8/@ownedChild/@children.0">
         <compartment
             href="sS_DSL.gmfgraph#EnumerationOwnedLiteralCompartment"/>
       </compartments>

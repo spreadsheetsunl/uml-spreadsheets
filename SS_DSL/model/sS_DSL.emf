@@ -1,6 +1,8 @@
 @namespace(uri="http://www.example.org/sS_DSL", prefix="sS_DSL")
 package sS_DSL;
 
+import "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore";
+
 @gmf.diagram
 class SS_DSL {
   val Element[*] hasElements;
@@ -114,6 +116,7 @@ enum TableType {
 enum CellType {
   NUMBER = 0;
   TEXT = 0;
+  NONE = 2;
 }
 
 enum AggregationFunction {
@@ -156,5 +159,14 @@ class Entry extends Property {
 
   @gmf.label(label.pattern="cType: {0}")
   attr CellType[1] cType;
+}
+
+abstract class Format extends Class {
+}
+
+@gmf.node(label.icon="false", label="name", color="255,133,51", figure="rectangle", size="125,60")
+class RegEx extends Format {
+  @gmf.label(label.pattern="epx: {0}")
+  attr ecore.EString[1] exp;
 }
 

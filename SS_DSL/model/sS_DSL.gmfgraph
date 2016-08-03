@@ -182,6 +182,24 @@
       <accessors accessor="getFigureEntryLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
       <accessors accessor="getFigureEntryCTypeLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors name="RegExFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="RegExFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="133" blue="51"/>
+        <preferredSize dx="125" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="RegExLabelFigure" text="RegEx">
+          <maximumSize dx="10000" dy="50"/>
+          <font xsi:type="gmfgraph:BasicFont" height="11" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="RegExExpLabelFigure"/>
+        <children xsi:type="gmfgraph:Rectangle" name="RegExOwnedAttributeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureRegExLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureRegExExpLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+      <accessors accessor="getRegExOwnedAttributeCompartmentFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.2"/>
+    </descriptors>
     <descriptors name="AssociationFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AssociationFigure">
         <foregroundColor xsi:type="gmfgraph:RGBColor"/>
@@ -253,6 +271,11 @@
       <defaultSize dx="180" dy="55"/>
     </facets>
   </nodes>
+  <nodes name="RegEx" figure="RegExFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="125" dy="60"/>
+    </facets>
+  </nodes>
   <connections name="Association" figure="AssociationFigure"/>
   <connections name="Usage" figure="UsageFigure"/>
   <connections name="Aggregation" figure="AggregationFigure"/>
@@ -265,6 +288,7 @@
   <compartments name="HeaderOwnedAttributeCompartment" figure="HeaderFigure" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
   <compartments name="FormulaOwnedAttributeCompartment" figure="FormulaFigure" accessor="//@figures.0/@descriptors.7/@accessors.2"/>
   <compartments name="CellsAggregationOwnedAttributeCompartment" figure="CellsAggregationFigure" accessor="//@figures.0/@descriptors.8/@accessors.3"/>
+  <compartments name="RegExOwnedAttributeCompartment" figure="RegExFigure" accessor="//@figures.0/@descriptors.10/@accessors.2"/>
   <labels name="ClassLabel" figure="ClassFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels name="EnumerationLabel" figure="EnumerationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels name="EnumerationLiteralLabel" figure="EnumerationLiteralFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
@@ -282,4 +306,6 @@
   <labels name="CellsAggregationAFunctionLabel" figure="CellsAggregationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.2"/>
   <labels name="EntryLabel" figure="EntryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels name="EntryCTypeLabel" figure="EntryFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels name="RegExLabel" figure="RegExFigure" elementIcon="false" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels name="RegExExpLabel" figure="RegExFigure" elementIcon="false" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
 </gmfgraph:Canvas>

@@ -14,11 +14,11 @@
     <ownedAttribute xsi:type="sS_DSL:Entry" name="D"/>
     <ownedAttribute xsi:type="sS_DSL:Entry" name="E"/>
   </hasElements>
-  <hasElements xsi:type="sS_DSL:Header" name="B" sourceAssociation="//@hasElements.9">
-    <ownedAttribute xsi:type="sS_DSL:Entry" name="F"/>
+  <hasElements xsi:type="sS_DSL:Header" name="B" sourceAssociation="//@hasElements.9" targetAssociation="//@hasElements.26">
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="F" clientDependency="//@hasElements.23"/>
     <ownedAttribute xsi:type="sS_DSL:Entry" name="H"/>
   </hasElements>
-  <hasElements xsi:type="sS_DSL:Header" name="C" sourceAssociation="//@hasElements.10">
+  <hasElements xsi:type="sS_DSL:Header" name="C" sourceAssociation="//@hasElements.10" targetAssociation="//@hasElements.22">
     <ownedAttribute xsi:type="sS_DSL:Entry" name="I"/>
   </hasElements>
   <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.5" source="//@hasElements.3"/>
@@ -28,8 +28,8 @@
     <ownedAttribute xsi:type="sS_DSL:Entry" name="J"/>
   </hasElements>
   <hasElements xsi:type="sS_DSL:Header" name="E" sourceAssociation="//@hasElements.14" targetAssociation="//@hasElements.20">
-    <ownedAttribute xsi:type="sS_DSL:Entry" name="Z"/>
-    <ownedAttribute xsi:type="sS_DSL:Entry" name="L"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="Z" clientDependency="//@hasElements.27"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="L" cType="TEXT"/>
     <ownedAttribute xsi:type="sS_DSL:Entry" name="S"/>
   </hasElements>
   <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.11" source="//@hasElements.5"/>
@@ -39,8 +39,15 @@
   <hasElements xsi:type="sS_DSL:Worksheet" name="edewd" sourceAssociation="//@hasElements.18" order="1"/>
   <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.17" source="//@hasElements.0"/>
   <hasElements xsi:type="sS_DSL:Header" name="S" sourceAssociation="//@hasElements.20">
-    <ownedAttribute xsi:type="sS_DSL:Entry" name="W"/>
-    <ownedAttribute xsi:type="sS_DSL:Entry" name="Q"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="W" cType="TEXT"/>
+    <ownedAttribute xsi:type="sS_DSL:Entry" name="cwedw que eedi" clientDependency="//@hasElements.24"/>
   </hasElements>
   <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.19" source="//@hasElements.12"/>
+  <hasElements xsi:type="sS_DSL:Formula" name="I" supplierDependency="//@hasElements.23 //@hasElements.24" sourceAssociation="//@hasElements.22" formula="&lt;F>+9*&lt;cwedw que eedi>-5 "/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.21" source="//@hasElements.7"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.6/@ownedAttribute.0" client="//@hasElements.21"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.19/@ownedAttribute.1" client="//@hasElements.21"/>
+  <hasElements xsi:type="sS_DSL:Formula" name="F" supplierDependency="//@hasElements.27" sourceAssociation="//@hasElements.26" formula="7+&lt;Z> "/>
+  <hasElements xsi:type="sS_DSL:Composition" target="//@hasElements.25" source="//@hasElements.6"/>
+  <hasElements xsi:type="sS_DSL:Usage" supplier="//@hasElements.12/@ownedAttribute.0" client="//@hasElements.25"/>
 </sS_DSL:SS_DSL>

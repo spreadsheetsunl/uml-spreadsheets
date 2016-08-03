@@ -160,7 +160,6 @@
    [% } else if (t.type == TableType#RELATIONSHIP){ 
    
       var vH = getVerticalHeaders(vHeader.target, 0);
-      leafsMap(vH).println;
      
    %]
    
@@ -184,6 +183,26 @@
      [% } %]
    [% } %]
   </Table>
+  [% if(t.type == TableType#VERTICAL) {
+       var entries = allLeafs(t);
+       var count = 0;
+       while(count < entries.size) { 
+       
+         var re_exp;
+         var re = entries.at(count)[0].supplierDependency.supplier;
+         count++;
+         if(re.size > 0) 
+           re_exp = re.at(0).at(0).exp;
+           
+         else continue;
+   %]
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+    <Range>R[%=max(t)+3%]C[%=count%]:R[%=max(t)+22%]C[%=count%]</Range>
+    <Type>Custom</Type>
+    <Value>COUNTIF(RC,&quot;[%=re_exp%]&quot;) &gt; 0</Value>
+  </DataValidation>
+  [%  } %]
+  [% } %]
   [% }%]
  </Worksheet>
  [% }%]

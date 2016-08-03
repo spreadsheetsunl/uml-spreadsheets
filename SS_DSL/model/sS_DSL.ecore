@@ -157,6 +157,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="CellType">
     <eLiterals name="NUMBER"/>
     <eLiterals name="TEXT"/>
+    <eLiterals name="NONE" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AggregationFunction">
     <eLiterals name="AVERAGE"/>
@@ -232,6 +233,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cType" lowerBound="1" eType="#//CellType">
       <eAnnotations source="gmf.label">
         <details key="label.pattern" value="cType: {0}"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Format" abstract="true" eSuperTypes="#//Class"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegEx" eSuperTypes="#//Format">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="color" value="255,133,51"/>
+      <details key="figure" value="rectangle"/>
+      <details key="size" value="125,60"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exp" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="gmf.label">
+        <details key="label.pattern" value="epx: {0}"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
